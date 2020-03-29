@@ -167,6 +167,35 @@ You can say:
 
 `Channel` is optional, `unread next` must be said together or you can say `goneck`
 
+##### Isolate (anchor) Commands
+
+You can isolate (anchor) commands using ^ (must start with) or $ (must end with) meaning you have
+to pause between that and another command.
+
+To isolate a command:
+
+```yaml
+^just me$: insert("I am all alone")
+```
+
+Now if you said "camel it is just me here" you'd get "itIsJustMeHere" typed, rather than "itIsI am all alone" 
+
+To end a command so a pause is required before the next command:
+
+```yaml
+say <phrase>$: insert(phrase)
+```
+
+Now if you said "say it is a nice day for my camel to drink" you'd get "it is a nice day for my camel to drink" rather than """it is a nice day for mytoDrink"
+
+To make a pause required before a command:
+
+```yaml
+^say <phrase>: insert(phrase)
+```
+
+Now if you say "camel I do say this is nice" you'd get "iDoSayThisIsNice" rather than "iDothis is nice"
+
 #### Inserting static text
 
 ```yaml
